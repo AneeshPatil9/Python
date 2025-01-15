@@ -1,0 +1,102 @@
+#Table of a Number
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+...
+5 x 10 = 50
+
+
+
+# Swap Two Numbers
+a = int(input("Enter the first number (a): "))
+b = int(input("Enter the second number (b): "))
+a = a ^ b
+b = a ^ b
+a = a ^ b
+print("After swapping: a =", a, ", b =", b)
+
+
+
+# Check Substring
+s1 = input("Enter the main string (s1): ")
+s2 = input("Enter the substring to check (s2): ")
+if s2 in s1:
+    print(f'"{s2}" is a substring of "{s1}".')
+else:
+    print(f'"{s2}" is NOT a substring of "{s1}".')
+
+
+
+#Decimal to Binary
+decimal = int(input("Enter a decimal number: "))
+binary = bin(decimal)[2:]  
+print(f"The binary representation of {decimal} is {binary}.")
+
+
+
+# Matrix Addition
+rows = int(input("Enter the number of rows: "))
+cols = int(input("Enter the number of columns: "))
+print("Enter the elements of the first matrix:")
+
+matrix1 = [[int(input(f"Element [{i+1}][{j+1}]: ")) for j in range(cols)] for i in range(rows)]
+print("Enter the elements of the second matrix:")
+matrix2 = [[int(input(f"Element [{i+1}][{j+1}]: ")) for j in range(cols)] for i in range(rows)]
+
+result = [[matrix1[i][j] + matrix2[i][j] for j in range(cols)] for i in range(rows)]
+print("The resulting matrix after addition is:")
+for row in result:
+    print(row)
+
+
+#Matrix Multiplication
+rows1 = int(input("Enter the number of rows in the first matrix: "))
+cols1 = int(input("Enter the number of columns in the first matrix: "))
+rows2 = int(input("Enter the number of rows in the second matrix: "))
+cols2 = int(input("Enter the number of columns in the second matrix: "))
+
+if cols1 != rows2:
+    print("Matrix multiplication is not possible. Number of columns in the first matrix must equal the number of rows in the second matrix.")
+else:
+    print("Enter the elements of the first matrix:")
+    matrix1 = [[int(input(f"Element [{i+1}][{j+1}]: ")) for j in range(cols1)] for i in range(rows1)]
+
+    print("Enter the elements of the second matrix:")
+    matrix2 = [[int(input(f"Element [{i+1}][{j+1}]: ")) for j in range(cols2)] for i in range(rows2)]
+    result = [[sum(matrix1[i][k] * matrix2[k][j] for k in range(cols1)) for j in range(cols2)] for i in range(rows1)]
+
+    print("The resulting matrix after multiplication is:")
+    for row in result:
+        print(row)
+
+
+
+# Find Second Largest
+numbers = list(map(int, input("Enter the list of numbers separated by spaces: ").split()))
+
+if len(set(numbers)) < 2:
+    print("The list must contain at least two unique numbers.")
+else:
+    unique_numbers = list(set(numbers))
+    unique_numbers.sort()
+
+    second_largest = unique_numbers[-2]
+
+    print(f"The second largest number is {second_largest}.")
+
+
+# Check Anagram
+# Input two strings
+str1 = input("Enter the first string: ").strip().lower()
+str2 = input("Enter the second string: ").strip().lower()
+
+# Check if the sorted characters of both strings are the same
+if sorted(str1) == sorted(str2):
+    print(f'"{str1}" and "{str2}" are anagrams.')
+else:
+    print(f'"{str1}" and "{str2}" are NOT anagrams.')
+
+
+
+
+
